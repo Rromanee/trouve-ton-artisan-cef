@@ -1,0 +1,80 @@
+<header>
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="navbar-brand" routerLink="/" aria-label="Retour à l'accueil">
+      <img src="assets/images/Logo.png" alt="Trouve ton artisan - Région Auvergne-Rhône-Alpes" />
+    </a>
+
+    <div class="header-icons d-lg-none">
+      <button 
+        type="button" 
+        class="icon-btn" 
+        (click)="toggleSearchMobile()" 
+        [attr.aria-label]="showSearchMobile ? 'Fermer la recherche' : 'Ouvrir la recherche'"
+        [attr.aria-expanded]="showSearchMobile">
+        <fa-icon [icon]="faMagnifyingGlass" class="icon"></fa-icon>
+      </button>
+      
+      <button 
+        type="button" 
+        class="icon-btn" 
+        (click)="toggleMenuMobile()" 
+        [attr.aria-label]="showMenuMobile ? 'Fermer le menu' : 'Ouvrir le menu'"
+        [attr.aria-expanded]="showMenuMobile">
+        <fa-icon [icon]="showMenuMobile ? faXmark : faBars" class="icon"></fa-icon>
+      </button>
+    </div>
+
+    <div class="navbar-collapse d-none d-lg-flex">
+      <nav class="nav-links" role="navigation" aria-label="Menu principal">
+        <a class="nav-link" routerLink="/batiment" routerLinkActive="active">Bâtiment</a>
+        <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
+        <a class="nav-link" routerLink="/fabrication" routerLinkActive="active">Fabrication</a>
+        <a class="nav-link" routerLink="/alimentation" routerLinkActive="active">Alimentation</a>
+      </nav>
+
+      <form (submit)="onSearch($event)" role="search" aria-label="Recherche d'artisans">
+        <label for="search-desktop" class="visually-hidden">Rechercher un artisan</label>
+        <input 
+          id="search-desktop"
+          type="search" 
+          class="form-control" 
+          placeholder="Rechercher un artisan" 
+          [(ngModel)]="searchQuery" 
+          name="search"
+          aria-describedby="search-help" />
+        <button type="submit" class="search-btn" aria-label="Lancer la recherche">
+          <fa-icon [icon]="faMagnifyingGlass" class="icon search-icon"></fa-icon>
+        </button>
+        <div id="search-help" class="visually-hidden">
+          Recherchez par nom, spécialité ou ville
+        </div>
+      </form>
+    </div>
+
+    <div class="search-mobile" [class.active]="showSearchMobile" [attr.aria-hidden]="!showSearchMobile">
+      <form (submit)="onMobileSearch()" role="search" aria-label="Recherche mobile d'artisans">
+        <label for="search-mobile" class="visually-hidden">Rechercher un artisan</label>
+        <input 
+          id="search-mobile"
+          type="search" 
+          placeholder="Rechercher un artisan" 
+          [(ngModel)]="searchQuery" 
+          name="search-mobile"
+          aria-describedby="search-mobile-help" />
+        <button type="submit" class="search-btn-mobile" aria-label="Lancer la recherche">
+          <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+        </button>
+        <div id="search-mobile-help" class="visually-hidden">
+          Recherchez par nom, spécialité ou ville
+        </div>
+      </form>
+    </div>
+
+    <nav class="mobile-menu" [class.active]="showMenuMobile" [attr.aria-hidden]="!showMenuMobile" role="navigation" aria-label="Menu mobile">
+      <a class="nav-link" routerLink="/batiment" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Bâtiment</a>
+      <a class="nav-link" routerLink="/services" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Services</a>
+      <a class="nav-link" routerLink="/fabrication" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Fabrication</a>
+      <a class="nav-link" routerLink="/alimentation" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Alimentation</a>
+    </nav>
+  </nav>
+</header>
