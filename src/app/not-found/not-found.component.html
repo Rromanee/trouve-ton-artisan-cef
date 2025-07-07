@@ -1,0 +1,27 @@
+<main class="content" role="main">
+    <div class="container">
+        <nav class="quick-nav" aria-label="Navigation rapide" role="navigation">
+            <ul class="quick-links">
+                <li><a href="/" [attr.aria-label]="'Aller à la page d\'accueil'">Accueil</a></li>
+            </ul>
+        </nav>
+        <div class="text-section">
+            <h1>Erreur 404</h1>
+        </div>
+        
+        <div>
+            <img src="assets/images/404.png" 
+                 alt="Illustration  de trois coureurs sur une piste d'athlétisme avec les dossards 3, 23 et 404" 
+                 class="photo"
+                 loading="eager">
+        </div>
+        <div>
+            <button class="back-home-btn" 
+            type="button"
+            routerLink="/" aria-label="Retour à l'accueil"
+            aria-label="Retourner à la page d'accueil du site">
+        Retour à l'accueil
+            </button>
+        </div>
+    </div>
+</main>

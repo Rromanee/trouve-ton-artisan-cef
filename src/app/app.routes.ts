@@ -10,6 +10,7 @@ import { BatimentComponent } from './pages/batiment/batiment.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { FabricationComponent } from './pages/fabrication/fabrication.component';
 import { AlimentationComponent } from './pages/alimentation/alimentation.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 export const routes: Routes = [
@@ -24,5 +25,6 @@ export const routes: Routes = [
     { path: 'contacts', component: ContactsComponent },
     { path: 'politique-cookies', component: PolitiqueCookiesComponent },
     { path: 'gestion-cookies', component: GestionCookiesComponent },
-
+    { path: 'not-found', component: NotFoundComponent },
+    { path: '**', redirectTo: '/not-found' },
 ];
