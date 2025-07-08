@@ -1,6 +1,9 @@
 $dark-blue: #00497c;
 $blue-color: #0074c7;
 
+$tablet: 1024px;
+$desktop: 1200px;
+
 .content {
     margin: 0 6.5rem;
     padding: 2rem 0;
@@ -71,7 +74,7 @@ h1 {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $tablet) {
     .content {
         margin: 1rem 2rem;
         padding: 1rem 2rem;
@@ -93,7 +96,7 @@ h1 {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $desktop) {
     .content {
         margin: 0 6rem;
     }
