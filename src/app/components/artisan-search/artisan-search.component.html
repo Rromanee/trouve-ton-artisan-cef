@@ -1,0 +1,16 @@
+<div class="content" role="main">
+  <section class="artisans-section" id="artisans" aria-labelledby="artisans-title">
+    <div class="container">
+      <h2 id="artisans-title">Résultats de recherche pour "{{ query }}"</h2>
+
+      <div class="row">
+        <div class="artisan-list">
+          <app-artisan-card 
+            *ngFor="let artisan of filteredArtisans" 
+            [artisan]="artisan">
+          </app-artisan-card>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

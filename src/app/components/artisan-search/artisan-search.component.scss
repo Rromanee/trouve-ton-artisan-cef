@@ -8,7 +8,7 @@ $desktop: 1200px;
     padding: 2rem 0;
 }
 
-.alimentation-section {
+.artisans-section {
   padding: 3rem 0;
 
   h2 {
@@ -22,7 +22,7 @@ $desktop: 1200px;
 
 @media (min-width: $tablet) {
 
-  .alimentation-section {
+  .artisans-section {
     h2 {
       font-size: 2rem;
     }
@@ -31,7 +31,7 @@ $desktop: 1200px;
 
 @media (min-width: $desktop) {
   
-  .alimentation-section {
+  .artisans-section {
     h2 {
       font-size: 2.25rem;
     }

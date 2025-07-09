@@ -1,0 +1,23 @@
+<article 
+  class="artisan-card" 
+  [class.top-artisan]="artisan.top"
+  tabindex="0"
+  [attr.aria-label]="'Artisan: ' + artisan.name + ', ' + artisan.specialty + ', ' + artisan.location">
+  
+  <div class="artisan-info">
+    <h3>{{ artisan.name }}</h3>
+    <p class="artisan-details">{{ artisan.specialty }}, {{ artisan.location }}</p>
+    <div 
+      class="rating" 
+      role="img" 
+      [attr.aria-label]="'Note : ' + artisan.note + ' étoiles sur 5'"> 
+      <p class="artisan-note">{{ artisan.note }}</p>
+      <span 
+        class="star" 
+        *ngFor="let star of [1,2,3,4,5]"
+        [class.filled]="star <= artisan.note">
+        ★
+      </span>
+    </div>
+  </div>
+</article>
