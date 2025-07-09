@@ -1,0 +1,16 @@
+<div class="content" role="main">
+    <section class="fabrication-section">
+    <h2>Artisans Fabrication</h2>
+  
+    <div *ngIf="artisansFabrication.length > 0; else noResults">
+      <app-artisan-card
+        *ngFor="let artisan of artisansFabrication"
+        [artisan]="artisan"
+      ></app-artisan-card>
+    </div>
+  
+    <ng-template #noResults>
+      <p>Aucun artisan trouvé dans la catégorie Fabrication.</p>
+    </ng-template>
+  </section>
+</div>

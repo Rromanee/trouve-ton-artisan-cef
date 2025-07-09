@@ -1,11 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ArtisanCardComponent } from '../../components/artisan-card/artisan-card.component';
+import { ArtisansService } from '../../services/artisans.service';
 
 @Component({
   selector: 'app-batiment',
-  imports: [],
+  imports: [CommonModule, ArtisanCardComponent],
   templateUrl: './batiment.component.html',
-  styleUrl: './batiment.component.scss'
+  styleUrls: ['./batiment.component.scss']
 })
-export class BatimentComponent {
 
+export class BatimentComponent implements OnInit {
+  artisansBatiment: any[] = [];
+
+  constructor(private artisanService: ArtisansService) {}
+
+  normalize(str: string): string {
+    if (!str) return '';
+    return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+  
+  ngOnInit(): void {
+    this.artisanService.getProducts().subscribe(data => {
+      this.artisansBatiment = data.filter(artisan => {
+        const normalizedCategory = this.normalize(artisan.category);
+        return normalizedCategory === 'batiment';
+      });
+    });
+  }  
 }

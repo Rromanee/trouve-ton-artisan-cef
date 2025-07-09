@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fa1, fa2, fa3, fa4 } from '@fortawesome/free-solid-svg-icons';
@@ -52,5 +51,4 @@ export class HomeComponent implements OnInit {
       this.artisansDuMois = data.filter(artisan => artisan.top === true);
     });
   }
-
 }

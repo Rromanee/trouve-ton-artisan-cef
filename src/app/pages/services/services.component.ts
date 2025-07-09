@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ArtisanCardComponent } from '../../components/artisan-card/artisan-card.component';
+import { ArtisansService } from '../../services/artisans.service';
 
 @Component({
   selector: 'app-services',
-  imports: [],
+  imports: [CommonModule, ArtisanCardComponent],
   templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+  styleUrls: ['./services.component.scss']
 })
-export class ServicesComponent {
 
+export class ServicesComponent implements OnInit {
+  artisansServices: any[] = [];
+
+  constructor(private artisanService: ArtisansService) {}
+  
+  ngOnInit(): void {
+    this.artisanService.getProducts().subscribe(data => {
+      this.artisansServices = data.filter(artisan => artisan.category === 'Services');
+    });
+  }  
 }

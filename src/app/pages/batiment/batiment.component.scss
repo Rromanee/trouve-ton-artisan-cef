@@ -1,0 +1,39 @@
+$secondary-gray: #384050;
+
+$tablet: 1024px;
+$desktop: 1200px;
+
+.content {
+    margin: 0 6.5rem;
+    padding: 2rem 0;
+}
+
+.batiment-section {
+  padding: 3rem 0;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: $secondary-gray;
+  }
+}
+
+@media (min-width: $tablet) {
+
+  .batiment-section {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  
+  .batiment-section {
+    h2 {
+      font-size: 2.25rem;
+    }
+  }
+}

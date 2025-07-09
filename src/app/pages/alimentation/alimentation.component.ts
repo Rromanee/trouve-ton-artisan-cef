@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ArtisanCardComponent } from '../../components/artisan-card/artisan-card.component';
+import { ArtisansService } from '../../services/artisans.service';
 
 @Component({
   selector: 'app-alimentation',
-  imports: [],
+  imports: [CommonModule, ArtisanCardComponent],
   templateUrl: './alimentation.component.html',
-  styleUrl: './alimentation.component.scss'
+  styleUrls: ['./alimentation.component.scss']
 })
-export class AlimentationComponent {
 
+export class AlimentationComponent implements OnInit {
+  artisansAlimentation: any[] = [];
+
+  constructor(private artisanService: ArtisansService) {}
+  
+  ngOnInit(): void {
+    this.artisanService.getProducts().subscribe(data => {
+      this.artisansAlimentation = data.filter(artisan => artisan.category === 'Alimentation');
+    });
+  }  
 }
