@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ArtisanSearchService } from '../../services/artisan-search.service';
-import { ArtisanCardComponent } from '../artisan-card/artisan-card.component';
-
-import { ArtisansService } from '../../services/artisans.service';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
+import { ArtisanCardComponent } from '../artisan-card/artisan-card.component';
+import { ArtisansService } from '../../services/artisans.service';
+
 
 @Component({
   selector: 'app-artisan-search',
@@ -18,26 +18,26 @@ export class ArtisanSearchComponent implements OnInit {
   query: string = '';
 
   constructor(
-    private artisanSearchService: ArtisanSearchService,
     private artisanService: ArtisansService,
-    private router: Router
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.query = this.artisanSearchService.getSearchQuery().toLowerCase().trim();
-
+    this.route.queryParams.subscribe(params => {
+      const query = params['query']?.toLowerCase().trim() || '';
+      this.query = query;
+      
     this.artisanService.getProducts().subscribe((data) => {
       this.artisans = data;
-
-      if (this.query) {
-        this.filteredArtisans = this.artisans.filter(artisan =>
-          artisan.name.toLowerCase().includes(this.query) ||
-          artisan.specialty.toLowerCase().includes(this.query) ||
-          artisan.location.toLowerCase().includes(this.query)
-        );
-      } else {
-        this.filteredArtisans = this.artisans;
-      }
+  
+        this.filteredArtisans = query
+          ? this.artisans.filter(artisan =>
+              artisan.name.toLowerCase().includes(this.query) ||
+              artisan.specialty.toLowerCase().includes(this.query) ||
+              artisan.location.toLowerCase().includes(this.query)
+            )
+          : this.artisans;
+      });
     });
   }
 }

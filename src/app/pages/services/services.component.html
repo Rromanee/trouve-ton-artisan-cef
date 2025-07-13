@@ -1,7 +1,9 @@
 <div class="content" role="main">
-    <section class="service-section">
-    <h2>Artisans Services</h2>
+  <app-breadcrumb>Services</app-breadcrumb>
   
+  <section class="service-section">
+    <h2>Artisans Services</h2>
+    
     <div *ngIf="artisansServices.length > 0; else noResults">
       <app-artisan-card
         *ngFor="let artisan of artisansServices"

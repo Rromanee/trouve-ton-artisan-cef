@@ -3,6 +3,7 @@ $secondary-blue: #F1F8FC;
 $accent-green: #82B864;
 $accent-red: #cd2c2e;
 
+$mobile: 480px;
 $tablet: 1024px;
 $desktop: 1200px;
 
@@ -22,7 +23,7 @@ $desktop: 1200px;
     background-color: $secondary-blue;
     border: 2px solid $secondary-blue;
     border-radius: 20px;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem 1rem 1.5rem;
     margin-bottom: 1.5rem;
     @include transition-smooth;
     cursor: pointer;
@@ -36,29 +37,27 @@ $desktop: 1200px;
       h3 {
         font-size: 1.25rem;
         font-weight: 600;
-        margin-bottom: 0.5rem;
         color: $secondary-gray;
       }
 
       .artisan-details {
         color: $secondary-gray;
         font-size: 0.95rem;
-        margin-bottom: 1rem;
-      }
-
-      .artisan-note {
-        margin-right: 0.2rem;
       }
 
       .rating {
         display: flex;
         align-items: center;
         gap: 0.25rem;
-        margin-bottom: 1rem;
+
+        .artisan-note {
+          margin-right: 0.2rem;
+        }
 
         .star {
           color: #ddd;
           font-size: 1.2rem;
+          margin-bottom: 0.9rem;
 
           &.filled {
             color: $accent-green;
@@ -70,11 +69,45 @@ $desktop: 1200px;
 
 .artisan-card.top-artisan {
     border: 2px solid $accent-red;
+}
+
+@media (max-width: 767px) {
+  .artisan-card {
+    padding: 1.25rem 1rem 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    
+    .artisan-info {
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .artisan-details {
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+      }
+
+      .rating {
+        gap: 0.15rem;
+        flex-wrap: wrap;
+
+        .artisan-note {
+          margin-right: 0.15rem;
+          font-size: 0.9rem;
+        }
+
+        .star {
+          font-size: 1rem;
+          margin-bottom: 0.7rem;
+        }
+      }
+    }
   }
-  
+}
 
 @media (min-width: $tablet) {
-
   .artisans-section {
     h2 {
       font-size: 2rem;
@@ -87,8 +120,7 @@ $desktop: 1200px;
 }
 
 @media (min-width: $desktop) {
-  
-    .artisan-card {
-      padding: 1rem;  
-    }
+  .artisan-card {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  }
 }

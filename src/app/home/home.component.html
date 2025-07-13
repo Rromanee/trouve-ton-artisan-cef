@@ -1,14 +1,28 @@
 <div class="content" role="main">
-<section class="how-to-find" aria-labelledby="how-to-title">
+  <section class="how-to-find" aria-labelledby="how-to-title">
     <div class="container">
       <h2 id="how-to-title">Comment trouver mon artisan ?</h2>
       
       <div class="row">
         <div class="col-12">
-          <div class="step-card" *ngFor="let step of steps">
-            <fa-icon [icon]="step.icon" class="icon"></fa-icon>
-            <div class="step-content">
-              <h3>{{ step.title }}</h3>
+          <div class="steps-list" role="list">
+            <div 
+              class="step-card" 
+              *ngFor="let step of steps; let i = index"
+              role="listitem"
+              [attr.aria-label]="'Étape ' + (i + 1) + ': ' + step.title"
+              tabindex="0"
+            >
+              <div class="step-number" aria-hidden="true">{{ i + 1 }}</div>
+              <fa-icon 
+                [icon]="step.icon" 
+                class="icon"
+                [attr.aria-label]="'Icône pour ' + step.title"
+                role="img"
+              ></fa-icon>
+              <div class="step-content">
+                <h3>{{ step.title }}</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -22,29 +36,10 @@
       
       <div class="row">
         <div class="artisan-list">
-          <article 
-            class="artisan-card" 
-            *ngFor="let artisan of artisansDuMois"
-            tabindex="0"
-            [attr.aria-label]="'Artisan: ' + artisan.name + ', ' + artisan.specialty + ', ' + artisan.location">
-            
-            <div class="artisan-info">
-                <h3>{{ artisan.name }}</h3>
-                <p class="artisan-details">{{ artisan.specialty }}, {{ artisan.location }}</p>
-              <div 
-                class="rating" 
-                role="img" 
-                [attr.aria-label]="'Note : ' + artisan.note + ' étoiles sur 5'"> 
-                <p class="artisan-note">{{ artisan.note }}</p>
-                <span 
-                  class="star" 
-                  *ngFor="let star of [1,2,3,4,5]"
-                  [class.filled]="star <= artisan.note">
-                  ★
-                </span>
-              </div>
-            </div>
-          </article>
+          <app-artisan-card 
+          *ngFor="let artisan of artisansDuMois" 
+          [artisan]="artisan">
+          </app-artisan-card>
         </div>
       </div>
     </div>

@@ -1,27 +1,42 @@
-<main class="content" role="main">
+<main class="content">
     <div class="container">
-        <nav class="quick-nav" aria-label="Navigation rapide" role="navigation">
-            <ul class="quick-links">
-                <li><a href="/" [attr.aria-label]="'Aller à la page d\'accueil'">Accueil</a></li>
-            </ul>
-        </nav>
-        <div class="text-section">
-            <h1>Erreur 404</h1>
-        </div>
-        
-        <div>
-            <img src="assets/images/404.png" 
-                 alt="Illustration  de trois coureurs sur une piste d'athlétisme avec les dossards 3, 23 et 404" 
-                 class="photo"
-                 loading="eager">
-        </div>
-        <div>
-            <button class="back-home-btn" 
-            type="button"
-            routerLink="/" aria-label="Retour à l'accueil"
-            aria-label="Retourner à la page d'accueil du site">
-        Retour à l'accueil
-            </button>
+        <app-breadcrumb>Erreur 404</app-breadcrumb>
+
+        <div class="error-content">
+            <div class="text-section">
+                <h1 aria-label="Erreur quatre zéro quatre">404</h1>
+                <h2>Page non trouvée</h2>
+                <p class="error-message">
+                    Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
+                </p>
+            </div>
+            
+            <div class="image-section">
+                <img src="assets/images/404.png" 
+                     alt="Illustration de trois coureurs sur une piste d'athlétisme avec les dossards 3, 23 et 404" 
+                     class="img-fluid"
+                     width="400"
+                     height="300"
+                     loading="eager">
+            </div>
+            
+            <div class="actions-section">
+                <button type="button" 
+                class="back-home-btn" 
+                routerLink="/"
+                aria-label="Retourner à la page d'accueil">
+                <fa-icon [icon]="faHouse" class="houseIcon" aria-hidden="true"></fa-icon>
+                Retour à l'Accueil
+                </button>
+            
+                <button type="button" 
+                class="back-btn-secondary" 
+                onclick="history.back()"
+                aria-label="Retourner à la page précédente">
+                <fa-icon [icon]="faArrowLeft" class="faArrowLeftIcon" aria-hidden="true"></fa-icon>
+                Page précédente
+                </button>
+            </div>
         </div>
     </div>
 </main>
