@@ -5,10 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fa1, fa2, fa3, fa4 } from '@fortawesome/free-solid-svg-icons';
 
 import { ArtisansService } from '../services/artisans.service';
+import { ArtisanCardComponent } from '../components/artisan-card/artisan-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, ArtisanCardComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

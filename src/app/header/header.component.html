@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+  <nav class="navbar">
     <a class="navbar-brand" routerLink="/" aria-label="Retour à l'accueil">
-      <img src="assets/images/Logo.png" alt="Trouve ton artisan - Région Auvergne-Rhône-Alpes" />
+      <img src="assets/images/Logo.png" alt="Trouve ton artisan - Région Auvergne-Rhône-Alpes"/>
     </a>
 
     <div class="header-icons d-lg-none">
@@ -24,13 +24,13 @@
       </button>
     </div>
 
-    <div class="navbar-collapse d-none d-lg-flex">
-      <nav class="nav-links" role="navigation" aria-label="Menu principal">
+    <div class="navbar-collapse">
+      <div class="nav-links">
         <a class="nav-link" routerLink="/batiment" routerLinkActive="active">Bâtiment</a>
         <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
         <a class="nav-link" routerLink="/fabrication" routerLinkActive="active">Fabrication</a>
         <a class="nav-link" routerLink="/alimentation" routerLinkActive="active">Alimentation</a>
-      </nav>
+      </div>
 
       <form (submit)="onSearch($event)" role="search" aria-label="Recherche d'artisans">
         <label for="search-desktop" class="visually-hidden">Rechercher un artisan</label>
@@ -70,11 +70,11 @@
       </form>
     </div>
 
-    <nav class="mobile-menu" [class.active]="showMenuMobile" [attr.aria-hidden]="!showMenuMobile" role="navigation" aria-label="Menu mobile">
+    <div class="mobile-menu" [class.active]="showMenuMobile" [attr.aria-hidden]="!showMenuMobile">
       <a class="nav-link" routerLink="/batiment" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Bâtiment</a>
       <a class="nav-link" routerLink="/services" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Services</a>
       <a class="nav-link" routerLink="/fabrication" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Fabrication</a>
       <a class="nav-link" routerLink="/alimentation" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Alimentation</a>
-    </nav>
+    </div>
   </nav>
 </header>

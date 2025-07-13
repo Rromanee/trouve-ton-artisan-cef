@@ -1,14 +1,14 @@
 <article 
-  class="artisan-card" 
+  class="artisan-card card" 
   [class.top-artisan]="artisan.top"
   tabindex="0"
   [attr.aria-label]="'Artisan: ' + artisan.name + ', ' + artisan.specialty + ', ' + artisan.location">
   
-  <div class="artisan-info">
-    <h3>{{ artisan.name }}</h3>
-    <p class="artisan-details">{{ artisan.specialty }}, {{ artisan.location }}</p>
+  <div class="artisan-info card-body">
+    <h3 class="card-title">{{ artisan.name }}</h3>
+    <p class="artisan-details card-text text-muted">{{ artisan.specialty }}, {{ artisan.location }}</p>
     <div 
-      class="rating" 
+      class="rating d-flex align-items-center" 
       role="img" 
       [attr.aria-label]="'Note : ' + artisan.note + ' étoiles sur 5'"> 
       <p class="artisan-note">{{ artisan.note }}</p>

@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <ol class="breadcrumb-list">
+      <li>
+        <a routerLink="/" aria-label="Retour à la page d'accueil">Accueil</a>
+      </li>
+      <li aria-hidden="true">
+        <fa-icon [icon]="faArrowRight" class="faArrowRightIcon"></fa-icon>
+      </li>
+      <li class="breadcrumb-category" aria-current="page">
+        <ng-content></ng-content>
+      </li>
+    </ol>
+  </nav>

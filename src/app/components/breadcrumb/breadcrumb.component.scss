@@ -1,0 +1,34 @@
+$dark-blue: #00497c;
+$blue-color: #0074c7;
+
+.breadcrumb {
+    padding-top: 1.5rem;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+    a {
+        color: $blue-color;
+        text-decoration: underline;
+        padding: 0.5rem;
+        transition: all 0.2s ease;
+        min-height: 44px;
+        
+        &:hover,
+        &:focus {
+            color: $dark-blue;
+        }
+    }
+
+    .breadcrumb-category {
+        margin-left: 0.5rem;
+    }
+
+    .faArrowRightIcon {
+        color: $blue-color;
+    }
+}

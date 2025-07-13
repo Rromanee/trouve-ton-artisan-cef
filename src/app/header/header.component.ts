@@ -4,7 +4,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ArtisanSearchService } from '../services/artisan-search.service';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +23,6 @@ export class HeaderComponent {
 
   constructor(
     private router: Router,
-    private artisanSearchService: ArtisanSearchService
   ) {}
   
   toggleSearchMobile() {
@@ -45,19 +43,22 @@ export class HeaderComponent {
     event.preventDefault();
     const q = this.searchQuery.trim();
     if (q) {
-      this.artisanSearchService.setSearchQuery(q);
-      this.router.navigate(['/recherche']);
+      this.router.navigate(['/recherche'], {
+        queryParams: { query: q }
+      });
     }
+    this.searchQuery = '';
   }
 
   onMobileSearch(): void {
-    const trimmed = this.searchQuery.trim();
-
-    if (trimmed) {
-      this.artisanSearchService.setSearchQuery(trimmed);
-      this.router.navigate(['/recherche']);
+    const q = this.searchQuery.trim();
+    if (q) {
+      this.router.navigate(['/recherche'], {
+        queryParams: { query: q }
+      });
       this.showSearchMobile = false;
     }
+    this.searchQuery = '';
   }
 
   closeMenuOnLinkClick(): void {
