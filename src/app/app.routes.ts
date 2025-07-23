@@ -12,6 +12,7 @@ import { FabricationComponent } from './pages/fabrication/fabrication.component'
 import { AlimentationComponent } from './pages/alimentation/alimentation.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ArtisanSearchComponent } from './components/artisan-search/artisan-search.component';
+import { ArtisanPageComponent } from './components/artisan-page/artisan-page.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
     { path: 'contacts', component: ContactsComponent },
     { path: 'politique-cookies', component: PolitiqueCookiesComponent },
     { path: 'gestion-cookies', component: GestionCookiesComponent },
+    { path: 'artisan/:id', component: ArtisanPageComponent },
     { path: 'not-found', component: NotFoundComponent },
     { path: 'recherche', component: ArtisanSearchComponent },
     { path: '**', redirectTo: '/not-found' },

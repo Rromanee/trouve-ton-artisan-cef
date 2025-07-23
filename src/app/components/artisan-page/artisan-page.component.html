@@ -1,0 +1,244 @@
+<div class="container-fluid py-4 content">
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <ol class="breadcrumb-list">
+      <li>
+        <a 
+        routerLink="/" 
+        aria-label="Retour à la page d'accueil">
+        Accueil
+      </a>
+      </li>
+      <li aria-hidden="true">
+        <fa-icon [icon]="faArrowRight" class="faArrowRightIcon"></fa-icon>
+      </li>
+      <li>
+        <a 
+        [routerLink]="['/', normalize(artisan?.category)]" 
+        aria-label="Retour à la catégorie">
+        {{ artisan?.category }}
+      </a>
+      </li>
+      <li aria-hidden="true">
+        <fa-icon [icon]="faArrowRight" class="faArrowRightIcon"></fa-icon>
+      </li>
+      <li class="breadcrumb-category" aria-current="page">
+        {{ artisan?.specialty }}
+      </li>
+    </ol>
+  </nav>
+
+  <h1 class="title">{{ title }}</h1>
+
+  <div class="fiche-artisan">
+    <div class="artisan-section shadow box-sm mb-4">
+      <article class="artisan-card mb-4">
+        <div class="card-body">
+          <h2 class="artisan-name mb-3">{{ artisan?.name }}</h2>
+
+          <div class="artisan-meta">
+            <div class="artisan-details">
+              <p class="specialty-location text-muted mb-0">
+                <i class="fas fa-tools me-2" aria-hidden="true"></i>
+                {{ artisan?.specialty }}, {{ artisan?.location }}
+              </p>
+              <div 
+                class="rating" 
+                role="img" 
+                [attr.aria-label]="'Note : ' + artisan?.note + ' étoiles sur 5'">
+                <p class="artisan-note">{{ artisan?.note }}</p>
+                <span 
+                  class="star" 
+                  *ngFor="let star of [1,2,3,4,5]" 
+                  [class.filled]="star <= artisan?.note">★</span>
+              </div>
+            </div>
+
+            <div class="website-link" *ngIf="artisan?.website">
+              <a 
+              [attr.href]="artisan.website" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-outline-primary btn-sm"
+              [attr.aria-label]="'Visiter le site web de ' + artisan.name + ' (ouvre dans un nouvel onglet)'">
+              {{ artisan?.website }}
+              </a>
+            </div>
+          </div>
+
+          <section class="about-section">
+            <h2 class="section-title">À Propos</h2>
+            <div class="about-content">
+              <p class="text-muted">{{ artisan?.about }}</p>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <aside class="contact-section">
+      <div class="card-body">
+        <h2 class="card-title section-title">Formulaire de Contact</h2>
+
+        <div 
+          class="alert alert-warning" 
+          role="alert" 
+          *ngIf="contactForm.invalid && (contactForm.dirty || contactForm.touched)">
+          <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>
+          Veuillez remplir tous les champs obligatoires pour pouvoir envoyer votre message.
+        </div>
+
+        <form 
+          [formGroup]="contactForm" 
+          (ngSubmit)="onSubmit()" 
+          class="contact-form" 
+          novalidate>
+
+          <div class="form-group">
+            <label for="contactName" class="form-label">
+              Nom <span class="required" aria-hidden="true">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="contactName" 
+              formControlName="name" 
+              class="form-control" 
+              [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" 
+              placeholder="Votre nom complet" 
+              required 
+              [attr.aria-describedby]="(contactForm.get('name')?.invalid && contactForm.get('name')?.touched) ? 'nameError' : null"
+              >
+            <div 
+              id="nameError" 
+              class="invalid-feedback" 
+              *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+              <ng-container *ngIf="contactForm.get('name')?.errors?.['required']">
+                Le nom est requis
+              </ng-container>
+              <ng-container *ngIf="contactForm.get('name')?.errors?.['minlength']">
+                Le nom doit contenir au moins 2 caractères
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactSubject" class="form-label">
+              Objet de la demande <span class="required" aria-hidden="true">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="contactSubject" 
+              formControlName="subject" 
+              class="form-control" 
+              [class.is-invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" 
+              placeholder="Objet de votre demande" 
+              required 
+              [attr.aria-describedby]="(contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) ? 'subjectError' : null"
+              >
+            <div 
+              id="subjectError" 
+              class="invalid-feedback" 
+              *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+              <ng-container *ngIf="contactForm.get('subject')?.errors?.['required']">
+                L'objet est requis
+              </ng-container>
+              <ng-container *ngIf="contactForm.get('subject')?.errors?.['minlength']">
+                L'objet doit contenir au moins 3 caractères
+              </ng-container>
+            </div>
+          </div>
+
+          <div>
+            <input 
+            type="text" 
+            name="company" 
+            formControlName="company"
+            style="display: none" 
+            autocomplete="off"
+            tabindex="-1" 
+            aria-hidden="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage" class="form-label">
+              Votre demande <span class="required" aria-hidden="true">*</span>
+            </label>
+            <textarea 
+              id="contactMessage" 
+              formControlName="message" 
+              class="form-control" 
+              [class.is-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" 
+              rows="5" 
+              placeholder="Décrivez votre demande..." 
+              required 
+              [attr.aria-describedby]="(contactForm.get('message')?.invalid && contactForm.get('message')?.touched) ? 'messageError' : null"
+              >
+            </textarea>
+            <div 
+              id="messageError" 
+              class="invalid-feedback" 
+              *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+              <ng-container *ngIf="contactForm.get('message')?.errors?.['required']">
+                Le message est requis
+              </ng-container>
+              <ng-container *ngIf="contactForm.get('message')?.errors?.['minlength']">
+                Le message doit contenir au moins 10 caractères
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="privacy-info">
+            <p class="privacy-text">
+              Les informations recueillies à partir de ce formulaire sont nécessaires aux services de 
+              Trouve Ton Artisan pour la gestion de votre demande.
+            </p>
+
+            <p class="privacy-text">
+              <a 
+                routerLink="/donnees-personnelles" 
+                class="data-link" 
+                title="Traitement des données personnelles"
+                [attr.aria-label]="'En savoir plus sur la gestion de vos données et vos droits'">
+                Pour en savoir plus sur la gestion de vos données et vos droits.
+              </a>
+            </p>
+          </div>
+
+          <button 
+            type="submit" 
+            class="submit-btn" 
+            [disabled]="contactForm.invalid || isSubmitting"
+            [class.valid]="contactForm.valid"
+            [class.disabled-state]="contactForm.invalid && !isSubmitting">
+            <span 
+              *ngIf="isSubmitting" 
+              class="spinner-border spinner-border-sm me-2" 
+              aria-hidden="true">
+            </span>
+            <span *ngIf="isSubmitting">Envoi en cours...</span>
+            <span *ngIf="!isSubmitting && contactForm.invalid && (contactForm.dirty || contactForm.touched)">
+              Veuillez compléter le formulaire
+            </span>
+            <span *ngIf="!isSubmitting && contactForm.valid">Envoyer le message</span>
+            <span *ngIf="!isSubmitting && !contactForm.dirty && !contactForm.touched">Soumettre</span>
+          </button>
+        </form>
+
+        <div 
+        class="alert alert-success mt-3" 
+        role="alert" 
+        *ngIf="submitSuccess">
+        Votre message a été envoyé avec succès !
+        </div>
+
+        <div 
+        *ngIf="submitError" 
+        class="alert alert-danger mt-3" 
+        role="alert">
+        {{ errorMessage || 'Une erreur s\'est produite. Veuillez réessayer.' }}
+        </div>      
+        
+      </div>
+    </aside>
+  </div>
+</div>

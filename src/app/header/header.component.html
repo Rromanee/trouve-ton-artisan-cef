@@ -51,7 +51,7 @@
       </form>
     </div>
 
-    <div class="search-mobile" [class.active]="showSearchMobile" [attr.aria-hidden]="!showSearchMobile">
+    <div class="search-mobile" [class.active]="showSearchMobile" [hidden]="!showSearchMobile">
       <form (submit)="onMobileSearch()" role="search" aria-label="Recherche mobile d'artisans">
         <label for="search-mobile" class="visually-hidden">Rechercher un artisan</label>
         <input 
@@ -70,7 +70,7 @@
       </form>
     </div>
 
-    <div class="mobile-menu" [class.active]="showMenuMobile" [attr.aria-hidden]="!showMenuMobile">
+    <div class="mobile-menu" [class.active]="showMenuMobile" [hidden]="!showMenuMobile" >
       <a class="nav-link" routerLink="/batiment" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Bâtiment</a>
       <a class="nav-link" routerLink="/services" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Services</a>
       <a class="nav-link" routerLink="/fabrication" routerLinkActive="active" (click)="closeMenuOnLinkClick()">Fabrication</a>

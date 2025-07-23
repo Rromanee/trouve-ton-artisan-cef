@@ -1,9 +1,11 @@
-<article 
-  class="artisan-card card" 
+<div
+  [routerLink]="['/artisan', artisan.id]" 
   [class.top-artisan]="artisan.top"
+  class="artisan-card card text-decoration-none d-block"
+  role="article"
   tabindex="0"
-  [attr.aria-label]="'Artisan: ' + artisan.name + ', ' + artisan.specialty + ', ' + artisan.location">
-  
+  [attr.aria-label]="'Voir la fiche de ' + artisan.name">
+
   <div class="artisan-info card-body">
     <h3 class="card-title">{{ artisan.name }}</h3>
     <p class="artisan-details card-text text-muted">{{ artisan.specialty }}, {{ artisan.location }}</p>
@@ -20,4 +22,5 @@
       </span>
     </div>
   </div>
-</article>
+
+</div>

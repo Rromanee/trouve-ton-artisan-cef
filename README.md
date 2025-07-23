@@ -1,59 +1,115 @@
-# TrouveTonArtisan
+# 🛠️ Trouve Ton Artisan – CEF
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Une application web développée avec Angular permettant aux particuliers de trouver facilement un artisan et de le contacter via un formulaire sécurisé.
 
-## Development server
+## ✨ Fonctionnalités
 
-To start a local development server, run:
+- 🔍 Recherche d'artisans par localisation, nom et spécialité
+- 📧 Système de contact sécurisé avec envoi d'e-mails
+- 🎨 Interface utilisateur moderne et responsive
+- 📱 Compatible mobile, tablette et desktop
+
+## 🛠️ Technologies Utilisées
+
+**Frontend :**
+- Angular 17+
+- HTML5, JS, Sass, Bootstrap
+
+**Backend :**
+- Node.js
+- Express.js
+- Nodemailer (pour l'envoi d'e-mails)
+
+**Outils de développement :**
+- MailDev (test d'e-mails en local)
+- Angular CLI
+
+## 📋 Prérequis
+
+Avant de commencer, assurez-vous d'avoir installé :
+
+- **Node.js** ≥ 18.x - [Télécharger](https://nodejs.org/)
+- **npm** ≥ 9.x (inclus avec Node.js)
+- **Angular CLI** ≥ 17.x
+- **Git** - [Télécharger](https://git-scm.com/)
+
+Vérifiez vos versions :
+```bash
+node --version
+npm --version
+ng version
+```
+
+## 🚀 Installation
+
+### 1. Cloner le projet
 
 ```bash
+git clone https://github.com/Rromanee/trouve-ton-artisan-cef.git
+cd trouve-ton-artisan-cef
+```
+
+### 2. Configuration du Backend
+
+```bash
+# Naviguer vers le dossier backend
+cd src/app/backend
+
+# Installer les dépendances
+npm install
+```
+
+### 3. Configuration du Frontend
+
+```bash
+# Revenir à la racine du projet
+cd ../../../
+
+# Installer les dépendances Angular
+npm install
+```
+
+## 🏃‍♂️ Lancement de l'application
+
+### Étape 1 : Démarrer MailDev (pour les tests d'e-mails)
+
+```bash
+# Installation globale de MailDev
+npm install -g maildev
+
+# Lancement de MailDev
+maildev
+```
+
+📧 **Interface MailDev** : http://localhost:1080
+
+### Étape 2 : Lancer le Backend
+
+```bash
+# Dans un nouveau terminal
+cd src/app/backend
+npm run dev
+```
+
+🔧 **API Backend** : http://localhost:3000
+
+### Étape 3 : Lancer le Frontend
+
+```bash
+# Dans un nouveau terminal (racine du projet)
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🌐 **Application Frontend** : http://localhost:4200
 
-## Code scaffolding
+## Application en ligne
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Vous trouverez l'application hébergé sur un serveur 'alwaysData' à l'adresse suivante : [Lien à venir]
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📚 Ressources Additionnelles
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Documentation Angular](https://angular.dev/)
+- [Angular CLI Reference](https://angular.dev/tools/cli)
+- [Node.js Documentation](https://nodejs.org/docs/)
+- [Express.js Guide](https://expressjs.com/)
