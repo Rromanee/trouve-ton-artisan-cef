@@ -104,7 +104,7 @@ ng serve
 
 ## Application en ligne
 
-Vous trouverez l'application hébergé sur un serveur 'alwaysData' à l'adresse suivante : [Lien à venir]
+Vous trouverez l'application hébergé sur un serveur 'alwaysData' à l'adresse suivante : https://trouveton-artisan.alwaysdata.net/
 
 
 ## 📚 Ressources Additionnelles
