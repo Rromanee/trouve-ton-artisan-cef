@@ -1,0 +1,399 @@
+$primary-blue: #0074c7;
+$secondary-blue: #F1F8FC;
+$primary-dark: #00497c;
+$secondary-gray: #384050;
+$accent-red: #cd2c2e;
+$accent-green: #82B864;
+$white: #ffffff;
+$border-color: #e2e8f0;
+$placeholder: #666;
+
+$mobile: 480px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+.content {
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  
+  a {
+    color: $primary-blue;
+    text-decoration: underline;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    
+    &:hover,
+    &:focus {
+      color: $primary-dark;
+    }
+  }
+
+  .breadcrumb-category {
+    margin-left: 0.5rem;
+  }
+
+  .faArrowRightIcon {
+    color: $primary-blue;
+  }
+}
+
+.title {
+  color: $primary-dark;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.fiche-artisan {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.artisan-section {
+  border-radius: 10px;
+}
+
+.artisan-card {
+  border: none;
+  overflow: hidden;
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+.artisan-name {
+  color: $primary-blue;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.artisan-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.artisan-details {
+  .specialty-location {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $secondary-gray;
+    margin-bottom: 0.75rem;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    
+    .artisan-note {
+      font-weight: 500;
+      color: $secondary-gray;
+      font-size: 1rem;
+      margin-right: 0.2rem;
+    }
+    
+    .star {
+      color: #ddd;
+      font-size: 1.1rem;
+      transition: color 0.2s ease;
+      margin-bottom: 0.9rem;
+
+      
+      &.filled {
+        color: $accent-green;
+      }
+    }
+  }
+}
+
+.website-link {
+          
+  .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $secondary-gray;
+    border-radius: 25px;
+    border: 1px solid $secondary-gray;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 44px;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-blue;
+      color: $white;
+      box-shadow: 0 4px 12px rgba($primary-blue, 0.3);
+    }
+  }
+}
+
+.about-section {
+  margin-top: 1.5rem;
+
+  .section-title {
+    color: $primary-dark;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .about-content {
+    font-size: 1rem;
+  }
+}
+
+.contact-section {
+  .card-body {
+    border: none;
+
+    .card-title {
+      color: $primary-dark;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $primary-dark;
+
+  .required {
+    color: $accent-red;
+  }
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  background-color: $secondary-blue;
+  border: 1px solid $primary-blue;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-height: 44px;
+
+  &:focus {
+    border: 1px solid $primary-blue;
+    outline: 2px solid $accent-green;
+    outline-offset: 0.5px; 
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  &.is-invalid {
+    border-color: $accent-red;
+    
+    &:focus {
+      outline-color: $accent-red;
+    }
+  }
+}
+
+textarea.form-control {
+  border-radius: 12px;
+  min-height: 120px;
+  margin-top: 0;
+}
+
+.invalid-feedback {
+  color: $accent-red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alert {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideIn 0.3s ease-out;
+  font-size: 0.9rem;
+  
+  &-warning {
+    background-color: $secondary-blue;
+    border: 1px solid $accent-red;
+    color: $secondary-gray;
+  }
+  
+  &-success {
+    background-color: $secondary-blue;
+    border: 1px solid $accent-green;
+    color: $accent-green;
+  }
+  
+  &-danger {
+    background-color: $accent-red;
+    border: 1px solid $secondary-blue;
+    color: $secondary-blue;
+  }
+}
+
+.submit-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $white;
+  background-color: $primary-blue;
+  border: 1px solid $primary-blue;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+    box-shadow: 0 4px 12px rgba($primary-blue, 0.3);
+  }
+
+  &:disabled,
+  &.disabled-state {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.privacy-text {
+  font-size: 0.9rem;
+  color: $secondary-gray;
+  margin: 0.5rem 0;
+}
+
+.data-link {
+  transition: color 0.3s ease;
+  text-decoration: none;
+  color: $primary-blue;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: $secondary-gray;
+  }
+}
+
+@media (min-width: $mobile) {
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .artisan-name {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: $tablet) {
+  .content {
+    padding: 2rem;
+  }
+  
+  .title {
+    margin: 1.5rem 0;
+    font-size: 2.5rem;
+  }
+    
+  .artisan-meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .website-link {
+    width: auto;
+    min-width: 200px;
+    max-width: 250px;
+
+    .btn {
+      padding: 0.5rem 0.7rem;
+    }
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .submit-btn {
+    width: auto;
+    min-width: 200px;
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: $desktop) {
+  .content {
+    padding: 2rem 6rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .artisan-name {
+    font-size: 2rem;
+  }
+  
+  .about-section {
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+}
